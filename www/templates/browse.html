@@ -1,0 +1,33 @@
+<ion-view view-title="Buscar Establecimiento">
+    <ion-content>
+        <div class="row responsive-sm">
+            <div class="col">
+                <div class="list">
+                    <label class="item item-input">
+                        <input type="text" placeholder="Buscar..." ng-model="data.busqueda">
+                    </label>
+                    <button class="button button-block button-positive" ng-click="buscar()">
+                        Buscar
+                    </button>
+                </div>
+                <div ng-if="estado === 0">
+                    No se ha realizado alguan búsqueda...
+                </div>
+                <div ng-if="estado === 1">
+                    <ion-spinner class="bubbles"></ion-spinner>Cargando datos. Por favor espere.....
+                </div>
+                <div ng-if="resultado === 'x'">
+                    No se han encontrado establecimientos en la búsqueda. Intentalo de nuevo...
+                </div>
+                <div ng-if="resultado && resultado != 'x'">
+                    <ion-list>            
+                        <a class="item item-avatar" ng-repeat="playlist in resultado" href="#/app/browse/{{playlist.id}}">
+                            <img ng-src="data:image/{{playlist.mime}};base64,{{playlist.image}}">
+                            <h2>{{playlist.name}}</h2>
+                        </a>
+                    </ion-list>
+                </div>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

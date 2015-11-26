@@ -1,0 +1,20 @@
+<ion-view view-title="Establecimientos">
+    <ion-content>
+        <div class="row responsive-sm">
+            <div class="col" ng-if="establecimientos && establecimientos != 'x'">
+                <ion-list>            
+                    <a class="item item-avatar" ng-repeat="e in establecimientos" href="#/app/browse/{{e.id}}">
+                        <img ng-src="data:image/{{e.mime}};base64,{{e.image}}">
+                        <h2>{{e.name}}</h2>
+                    </a>
+                </ion-list>
+            </div>
+            <div class="col" ng-if="!establecimientos">
+                <ion-spinner class="bubbles"></ion-spinner>Cargando datos. Por favor espere.....
+            </div>
+            <div class="col" ng-if="establecimientos == 'x'">
+                No se han encontrado establecimientos en la búsqueda. Intentalo de nuevo más tarde...
+            </div>
+        </div>   
+    </ion-content>
+</ion-view>

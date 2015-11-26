@@ -1,0 +1,20 @@
+<ion-view view-title="Categorías">
+    <ion-content>
+        <div class="row responsive-sm">
+            <div class="col" ng-if="playlists && playlists != 'x'">
+                <ion-list>            
+                    <a class="item item-avatar" ng-repeat="playlist in playlists" href="#/app/playlists/{{playlist.id}}">
+                        <img ng-src="data:image/{{playlist.mime}};base64,{{playlist.image}}">
+                        <h2>{{playlist.name}}</h2>
+                    </a>
+                </ion-list>
+            </div>
+            <div class="col" ng-if="!playlists">
+                <ion-spinner class="bubbles"></ion-spinner>Cargando datos. Por favor espere.....
+            </div>
+            <div class="col" ng-if="playlists == 'x'">
+                No se han encontrado categorías en la búsqueda. Intentalo de nuevo más tarde...
+            </div>
+        </div>        
+    </ion-content>
+</ion-view>

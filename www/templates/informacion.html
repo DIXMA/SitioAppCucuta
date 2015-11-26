@@ -1,0 +1,39 @@
+<ion-view view-title="Información">
+    <ion-content>
+        <div class="row responsive-sm">
+            <div class="col">
+                <div class="list card">
+                    <div class="item item-avatar">
+                        <img ng-src="data:image/{{data.mime}};base64,{{data.image}}">
+                        <h2>{{data.nombre}}</h2>
+                        <p>{{data.subtitle}}</p>
+                    </div>
+
+                    <div class="item item-body">
+                        <h1>Descripción</h1>
+                        <p>
+                            {{data.descripcion}}
+                        </p>
+                        <p ng-repeat="d in data_est">
+                            {{d.text}}
+                        </p>
+                    </div>
+                    <div class="item item-body" ng-if="data.restaurante === 'Si'">
+                        <h1>Menú</h1>
+                        <p ng-repeat="m in menu_est">
+                            {{m.text}}
+                        </p>
+                    </div>
+
+                    <div class="item tabs tabs-secondary tabs-icon-left">
+                        <a class="tab-item" href="#/app/search/correo">
+                            <i class="icon ion-thumbsup"></i>
+                            Enviar Email
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </div>   
+    </ion-content>
+</ion-view>
